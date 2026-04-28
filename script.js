@@ -1,3 +1,24 @@
+const quoteText = "Forged in darkness. Drawn to light.";
+const quoteElement = document.getElementById("heroQuote");
+
+const words = quoteText.split(" ");
+let currentWord = 0;
+
+function showWords() {
+    if (currentWord < words.length) {
+        quoteElement.textContent += 
+            (currentWord === 0 ? "" : " ") + words[currentWord];
+
+        currentWord++;
+
+        setTimeout(showWords, 450);
+    }
+}
+
+window.addEventListener("load", () => {
+    setTimeout(showWords, 2200);
+});
+
 const tiles = document.querySelectorAll('.tile');
 const messageBox = document.getElementById('messageBox');
 
