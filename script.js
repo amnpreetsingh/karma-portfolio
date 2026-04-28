@@ -26,6 +26,7 @@ let openedCount = 0;
 
 tiles.forEach(tile => {
     tile.addEventListener('click', () => {
+        tile.style.transform = "rotateY(180deg)";
         // If final message is showing and user clicks again,
         // restart the experience from this tile
         if (messageBox.classList.contains('final-message')) {
@@ -53,7 +54,10 @@ tiles.forEach(tile => {
 
                 //reset cycle so user can restart by clicking any tile again
                 openedCount = 0;
-                tiles.forEach(t => t.classList.remove('opened'));
+               tiles.forEach(t => {
+    t.classList.remove('opened');
+    t.style.transform = "rotateY(0deg)";
+});
 
             }, 1000);
         }
