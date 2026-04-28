@@ -116,7 +116,7 @@ if (now - lastCommentTime < 30000) {
     return;
 }
 
-lastCommentTime = now;
+
 
  
   const name =
@@ -124,6 +124,13 @@ lastCommentTime = now;
 
   const comment =
     document.getElementById("commentInput").value;
+
+    const captchaResponse = grecaptcha.getResponse();
+
+if (!captchaResponse) {
+    alert("Please verify captcha first.");
+    return;
+}
 
   if (!comment.trim()) return;
 
@@ -133,7 +140,9 @@ lastCommentTime = now;
     timestamp: serverTimestamp()
   });
 
+    lastCommentTime = now;
   commentForm.reset();
+  grecaptcha.reset();
   loadComments();
 });
 
