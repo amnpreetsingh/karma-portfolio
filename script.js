@@ -62,7 +62,7 @@ tiles.forEach(tile => {
                  innerTile.style.transform = "rotateY(0deg)";
              });
 
-            }, 3000);
+            }, 2000);
         }
     });
 });
